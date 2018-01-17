@@ -34,7 +34,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/amarillo"
                     android:gravity="top"
                     android:orientation="vertical"
                     android:visibility="visible">
@@ -45,12 +44,6 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1">
 
-                        <ImageView
-                            android:id="@+id/imageView8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            app:srcCompat="@mipmap/ic_launcher" />
                     </FrameLayout>
 
                     <ImageView
@@ -58,8 +51,40 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@color/colorAccent"
-                        app:srcCompat="@drawable/salir" />
+                        android:background="@color/rosa"
+                        app:srcCompat="@mipmap/lengua" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/amarillo"
+                        app:srcCompat="@mipmap/memo" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/verde"
+                        app:srcCompat="@mipmap/orienta" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/azuloscuro"
+                        app:srcCompat="@mipmap/atencion" />
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/purpura"
+                        app:srcCompat="@mipmap/visual" />
 
                 </TabWidget>
 
