@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/barra"
+        layout="@layout/barra" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/contenedor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/menu"
+            android:layout_toRightOf="@+id/menu"
+            android:background="@color/rosa" />
+
+        <LinearLayout
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/memo_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/amarillo"
+                android:contentDescription="@string/memoria"
+                app:srcCompat="@mipmap/memo" />
+
+            <ImageButton
+                android:id="@+id/leng_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/rosa"
+                android:contentDescription="@string/lenguaje"
+                app:srcCompat="@mipmap/lengua" />
+
+            <ImageButton
+                android:id="@+id/orien_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/verde"
+                android:contentDescription="@string/orientacion"
+                app:srcCompat="@mipmap/orienta" />
+
+            <ImageButton
+                android:id="@+id/aten_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/azuloscuro"
+                android:contentDescription="@string/atencion"
+                app:srcCompat="@mipmap/atencion" />
+
+            <ImageButton
+                android:id="@+id/visual_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/purpura"
+                android:contentDescription="@string/visual"
+                app:srcCompat="@mipmap/visual" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+
