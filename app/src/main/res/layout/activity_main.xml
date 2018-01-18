@@ -13,91 +13,68 @@
         android:id="@+id/barra"
         layout="@layout/barra" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TabHost
-            android:id="@android:id/tabhost"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            >
+        <android.support.v4.view.ViewPager
+            android:id="@+id/contenedor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/menu"
+            android:layout_toRightOf="@+id/menu"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />/>
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-                <TabWidget
-                    android:id="@android:id/tabs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="top"
-                    android:orientation="vertical"
-                    android:visibility="visible">
+            <ImageView
+                android:id="@+id/memo_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/amarillo"
+                android:contentDescription="@string/memoria"
+                app:srcCompat="@mipmap/memo" />
 
-                    <FrameLayout
-                        android:id="@android:id/tabcontent"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
+            <ImageView
+                android:id="@+id/leng_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/rosa"
+                android:contentDescription="@string/lenguaje"
+                app:srcCompat="@mipmap/lengua" />
 
-                    </FrameLayout>
+            <ImageView
+                android:id="@+id/orien_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/verde"
+                android:contentDescription="@string/orientacion"
+                app:srcCompat="@mipmap/orienta" />
 
-                    <ImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/rosa"
-                        app:srcCompat="@mipmap/lengua" />
+            <ImageView
+                android:id="@+id/aten_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/azuloscuro"
+                android:contentDescription="@string/atencion"
+                app:srcCompat="@mipmap/atencion" />
 
-                    <ImageView
-                        android:id="@+id/imageView8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/amarillo"
-                        app:srcCompat="@mipmap/memo" />
+            <ImageView
+                android:id="@+id/visual_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/purpura"
+                android:contentDescription="@string/visual"
+                app:srcCompat="@mipmap/visual" />
 
-                    <ImageView
-                        android:id="@+id/imageView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/verde"
-                        app:srcCompat="@mipmap/orienta" />
+        </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/imageView11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/azuloscuro"
-                        app:srcCompat="@mipmap/atencion" />
-
-                    <ImageView
-                        android:id="@+id/imageView12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/purpura"
-                        app:srcCompat="@mipmap/visual" />
-
-                </TabWidget>
-
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/pager"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"></android.support.v4.view.ViewPager>
-
-            </LinearLayout>
-        </TabHost>
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
 

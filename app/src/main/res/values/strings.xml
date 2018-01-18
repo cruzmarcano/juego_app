@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Crear juego desde plantilla</string>
+    <string name="memoria">memoria</string>
+    <string name="lenguaje">lenguaje</string>
+    <string name="orientacion">orientación</string>
+    <string name="atencion">atención</string>
+    <string name="visual">visual</string>
 </resources>
