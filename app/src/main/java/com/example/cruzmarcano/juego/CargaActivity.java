@@ -18,7 +18,7 @@ public class CargaActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(CargaActivity.this, MainActivity.class);
+                Intent intent = new Intent(CargaActivity.this, MemoriaActivity.class);
                 startActivity(intent);
 
                 //se crea la base de datos

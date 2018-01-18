@@ -23,7 +23,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/menu"
-            android:layout_toRightOf="@+id/menu"/>
+            android:layout_toRightOf="@+id/menu"
+            android:background="@color/amarillo" />
 
         <LinearLayout
             android:id="@+id/menu"
