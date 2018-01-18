@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/memo_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 android:contentDescription="@string/memoria"
                 app:srcCompat="@mipmap/memo" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/leng_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 android:contentDescription="@string/lenguaje"
                 app:srcCompat="@mipmap/lengua" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/orien_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 android:contentDescription="@string/orientacion"
                 app:srcCompat="@mipmap/orienta" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/aten_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 android:contentDescription="@string/atencion"
                 app:srcCompat="@mipmap/atencion" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/visual_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
