@@ -23,8 +23,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/menu"
-            android:layout_toRightOf="@+id/menu"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />/>
+            android:layout_toRightOf="@+id/menu"/>
 
         <LinearLayout
             android:id="@+id/menu"
