@@ -38,7 +38,7 @@ public class MemoriaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent lengua =new Intent(MemoriaActivity.this,LenguaActivity.class);
                 startActivity(lengua);
-                //Toast.makeText(MemoriaActivity.this,"hola",Toast.LENGTH_LONG).show();
+                overridePendingTransition(R.anim.aparecer,R.anim.desbanecer);
             }
         });
 

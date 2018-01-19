@@ -28,6 +28,7 @@ public class LenguaActivity extends AppCompatActivity {
                 //Toast.makeText(MemoriaActivity.this,"memoria",Toast.LENGTH_LONG).show();
                 Intent atencion =new Intent(LenguaActivity.this,MemoriaActivity.class);
                 startActivity(atencion);
+                overridePendingTransition(R.anim.aparecer,R.anim.desbanecer);
 
             }
         });
