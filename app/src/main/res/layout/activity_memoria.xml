@@ -74,7 +74,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/memo_jueg_nomb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10px"
@@ -87,7 +87,7 @@
                 android:textColor="@color/gris" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/memo_jue_inst"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10px"
@@ -156,7 +156,7 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/memo_guar_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
