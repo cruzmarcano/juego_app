@@ -10,13 +10,13 @@
     <color name="rojo">#BF0811</color>
     <color name="naranja2">#DFA94A</color>
     <color name="rosa">#cb74a2</color>
-    <color name="gris">#5B5B5F</color>
+    <color name="gris">#5b5b5f</color>
     <color name="azul2">#3D6AAC</color>
     <color name="purpura">#782d83</color>
     <color name="verde">#a3bd31</color>
-    <color name="gris2">#CBC9C9</color>
+    <color name="gris2">#cbc9c9</color>
     <color name="azul3">#5FA199</color>
     <color name="negro">#000000</color>
-    <color name="blanco">#FFFFFF</color>
+    <color name="blanco">#ffffff</color>
 
 </resources>
