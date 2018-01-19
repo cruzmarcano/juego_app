@@ -99,12 +99,61 @@
                 android:text="Instrucción"
                 android:textColor="@color/gris" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="134dp"
-                android:orientation="horizontal">
+                android:layout_height="132dp"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="12px">
 
-            </LinearLayout>
+                <ImageButton
+                    android:id="@+id/memo_ima"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:background="@color/gris2"
+                    app:srcCompat="@drawable/galeria_24dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_sonid_3"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_alignBottom="@+id/memo_ima"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_toEndOf="@+id/btn_sonid_2"
+                    android:layout_toRightOf="@+id/btn_sonid_2"
+                    app:srcCompat="@drawable/audio_24dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_sonid_2"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_alignTop="@+id/btn_sonid_1"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_toEndOf="@+id/btn_sonid_1"
+                    android:layout_toRightOf="@+id/btn_sonid_1"
+                    app:srcCompat="@drawable/audio_24dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_sonid_1"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_toEndOf="@+id/memo_ima"
+                    android:layout_toRightOf="@+id/memo_ima"
+                    app:srcCompat="@drawable/audio_24dp" />
+
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/button"
