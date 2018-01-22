@@ -107,7 +107,7 @@
                 android:orientation="horizontal"
                 android:paddingLeft="12px">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/memo_ima"
                     android:layout_width="150px"
                     android:layout_height="150px"
