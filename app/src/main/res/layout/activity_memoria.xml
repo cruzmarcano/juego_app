@@ -124,9 +124,9 @@
                     android:id="@+id/btn_sonid_3"
                     android:layout_width="100px"
                     android:layout_height="100px"
-                    android:layout_alignBottom="@+id/memo_ima"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginStart="18dp"
+                    android:layout_alignTop="@+id/btn_sonid_2"
+                    android:layout_marginLeft="19dp"
+                    android:layout_marginStart="19dp"
                     android:layout_toEndOf="@+id/btn_sonid_2"
                     android:layout_toRightOf="@+id/btn_sonid_2"
                     app:srcCompat="@drawable/audio_24dp" />
@@ -146,12 +146,24 @@
                     android:id="@+id/btn_sonid_1"
                     android:layout_width="100px"
                     android:layout_height="100px"
-                    android:layout_centerVertical="true"
+                    android:layout_alignTop="@+id/memo_ima"
                     android:layout_marginLeft="48dp"
                     android:layout_marginStart="48dp"
                     android:layout_toEndOf="@+id/memo_ima"
                     android:layout_toRightOf="@+id/memo_ima"
                     app:srcCompat="@drawable/audio_24dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_play1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/memo_ima"
+                    android:layout_alignLeft="@+id/btn_sonid_1"
+                    android:layout_alignStart="@+id/btn_sonid_1"
+                    android:layout_below="@+id/btn_sonid_1"
+                    android:layout_toLeftOf="@+id/btn_sonid_2"
+                    android:layout_toStartOf="@+id/btn_sonid_2"
+                    app:srcCompat="@android:drawable/ic_media_play" />
 
             </RelativeLayout>
 

@@ -1,6 +1,7 @@
 package com.example.cruzmarcano.juego;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -126,14 +127,14 @@ public class MemoriaActivity extends AppCompatActivity {
 
     private void opencamara() {
         //optengo la fecha para usarla como nombre de la imagen
-        Long fecha =System.currentTimeMillis()/1000;
+        //Long fecha =System.currentTimeMillis()/1000;
         //combierto la fecha a string y la uno con la extencion para formar el nombre
-        nombreImag =fecha.toString()+".jpg";
-        File nuevacarpeta=new File(ruta+nombreImag);
+       // nombreImag =fecha.toString()+".jpg";
+       // File nuevacarpeta=new File(ruta+nombreImag);
         //lanzamos el intent que abre la camara
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //se usa para almacenar la imagen
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(nuevacarpeta));
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(nuevacarpeta));
         //recibimos los resultados
         startActivityForResult(intent,PHOTO_CODE);
 
@@ -160,27 +161,15 @@ public class MemoriaActivity extends AppCompatActivity {
         switch (requestCode){
             case PHOTO_CODE:
                 if (resultCode==RESULT_OK){
-                    MediaScannerConnection.scanFile(this,
-                            new String[]{ruta+nombreImag}, null,
-                            new MediaScannerConnection.OnScanCompletedListener() {
-                                @Override
-                                public void onScanCompleted(String s, Uri uri) {
-                                    Log.i("External Storal","escaneo exitoso");
 
 
-
-                                }
-                            });
-                    //Uri path =data.getData();
-
-                    Bitmap bitmap = BitmapFactory.decodeFile(ruta+nombreImag);
-                    memo_ima.setImageBitmap(bitmap);
+                    Uri path =data.getData();
+                    doCrop(path);
 
 
-
-                    ;
                 }
                 break;
+                //------------------------Galeria--------------------
             case SELECT_PICTURE:
 
 
@@ -192,20 +181,11 @@ public class MemoriaActivity extends AppCompatActivity {
 
                 }
                 break;
-
+            //------------------------Cortar---------------------------
             case CROP_PIC_REQUEST_CODE:
                 if(resultCode==RESULT_OK) {
-                    MediaScannerConnection.scanFile(this,
-                            new String[]{ruta+nombreImag}, null,
-                            new MediaScannerConnection.OnScanCompletedListener() {
-                                @Override
-                                public void onScanCompleted(String s, Uri uri) {
-                                    Log.i("External Storal","escaneo exitoso");
+                    scanercarpeta(ruta+nombreImag,this);
 
-
-
-                                }
-                            });
                     Bitmap bitmap = BitmapFactory.decodeFile(ruta+nombreImag);
                     memo_ima.setImageBitmap(bitmap);
                 }
@@ -213,6 +193,20 @@ public class MemoriaActivity extends AppCompatActivity {
                 break;
 
         }
+    }
+
+    private void scanercarpeta(String ruta, Context contes) {
+        MediaScannerConnection.scanFile(contes,
+                new String[]{ruta}, null,
+                new MediaScannerConnection.OnScanCompletedListener() {
+                    @Override
+                    public void onScanCompleted(String s, Uri uri) {
+                        Log.i("External Storal","escaneo exitoso");
+
+
+
+                    }
+                });
     }
 
     private void decodeBitmap(String direccion) {

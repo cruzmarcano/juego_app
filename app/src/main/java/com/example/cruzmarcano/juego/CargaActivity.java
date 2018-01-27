@@ -34,9 +34,9 @@ public class CargaActivity extends AppCompatActivity {
                     db.execSQL("INSERT INTO recurso(recur_id, recur_nomb) VALUES (null, 'cocina.jpg');");
                     db.execSQL("INSERT INTO grupo(grupo_id, grupo_nomb, grupo_color, grupo_imag) VALUES (null, 'familia','verde',1);");
                     db.execSQL("INSERT INTO juego(juego_id, planti_fk, juego_nomb, juego_instr,\n" +
-                               "\t juego_pre_resp,juego_pre_resp2,juego_pre_resp3,juego_pre_resp4) VALUES (null, 1,\n" +
+                               "\t juego_pre_resp_fk,juego_pre_resp2_fk,juego_pre_resp3_fk,juego_pre_resp4_fk) VALUES (null, 1,\n" +
                                "\t'cartas_1','seleccione un carta',1,1,1,1);");
-                    db.execSQL("INSERT INTO jue_grup(jue_grup, juego_fk, grupo_fk) VALUES (null, 1,1);");
+                    db.execSQL("INSERT INTO jue_grup(jue_grup_id, juego_fk, grupo_fk) VALUES (null, 1,1);");
 
                 }
             }
