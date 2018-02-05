@@ -26,7 +26,8 @@ public class SonidoListActivity extends AppCompatActivity {
     public  List<ListaMusica> optenrSinidos(){
 
         List<ListaMusica> sonido=new ArrayList<>();
-        sonido.add(new ListaMusica("juan","2:03",R.drawable.galeria_24dp));
+        sonido.add(new ListaMusica("Juan","2:03",R.drawable.ic_sonido));
+        sonido.add(new ListaMusica("Maria","4:03",R.drawable.ic_sonido));
 
         return sonido;
     }

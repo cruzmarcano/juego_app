@@ -15,7 +15,9 @@ public class ListaMusica   {
         this.nombre = nombre;
         this.duracion = duracion;
         this.icon1 = icon1;
-        this.play_img = R.drawable.audio_24dp;
+        this.play_img = R.drawable.ic_play;
+
+
     }
 
     public String getNombre() {
