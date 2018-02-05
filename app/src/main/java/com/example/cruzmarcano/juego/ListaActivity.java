@@ -37,6 +37,7 @@ public class ListaActivity extends AppCompatActivity {
 
 
 
+
         //lleno el arreglo con la informacion de la carpeta inspecionada
         for (int i = 0; i < listaVoz.length; i++)         {
 
