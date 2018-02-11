@@ -8,13 +8,13 @@ import com.example.cruzmarcano.juego.R;
 
 public class ListaMusica   {
     private String nombre, duracion;
-    private int icon1;
+    private final int icon1;
     private final int play_img;
 
-    public ListaMusica(String nombre, String tiempo, int icon1) {
+    public ListaMusica(String nombre, String tiempo) {
         this.nombre = nombre;
         this.duracion = duracion;
-        this.icon1 = icon1;
+        this.icon1 = R.drawable.ic_sonido;
         this.play_img = R.drawable.ic_play;
 
 
@@ -40,11 +40,7 @@ public class ListaMusica   {
         return icon1;
     }
 
-    public void setIcon1(int icon1) {
-        this.icon1 = icon1;
-    }
-
-    public Integer getPlay_img() {
+    public int getPlay_img() {
         return play_img;
     }
 }

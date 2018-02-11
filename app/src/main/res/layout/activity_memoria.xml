@@ -147,8 +147,8 @@
                     android:layout_width="100px"
                     android:layout_height="100px"
                     android:layout_alignTop="@+id/memo_ima"
-                    android:layout_marginLeft="48dp"
-                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
                     android:layout_toEndOf="@+id/memo_ima"
                     android:layout_toRightOf="@+id/memo_ima"
                     app:srcCompat="@drawable/audio_24dp" />

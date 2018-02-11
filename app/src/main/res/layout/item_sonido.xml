@@ -41,6 +41,7 @@
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
                 android:text="TextView"
+                android:textColor="@color/gris2"
                 android:textSize="14sp" />
 
             <ImageButton

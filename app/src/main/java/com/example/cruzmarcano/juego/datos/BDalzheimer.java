@@ -19,7 +19,7 @@ public class BDalzheimer extends SQLiteOpenHelper {
 
     //tabla jueg_grup query
     String jue_grup="CREATE TABLE `jue_grup` (\n" +
-            "\t`jue_grup`\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
+            "\t`jue_grup_id`\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
             "\t`juego_fk`\tINTEGER NOT NULL,\n" +
             "\t`grupo_fk`\tINTEGER NOT NULL,\n" +
             "\tFOREIGN KEY(`grupo_fk`) REFERENCES `grupo`(`grupo_id`),\n" +
@@ -31,15 +31,15 @@ public class BDalzheimer extends SQLiteOpenHelper {
             "\t`planti_fk`\tINTEGER NOT NULL,\n" +
             "\t`juego_nomb`\tTEXT NOT NULL,\n" +
             "\t`juego_instr`\tTEXT NOT NULL,\n" +
-            "\t`juego_pre_resp`\tINTEGER NOT NULL,\n" +
-            "\t`juego_pre_resp2`\tINTEGER NOT NULL,\n" +
-            "\t`juego_pre_resp3`\tINTEGER NOT NULL,\n" +
-            "\t`juego_pre_resp4`\tINTEGER NOT NULL,\n" +
+            "\t`juego_pre_resp1_fk`\tINTEGER NOT NULL,\n" +
+            "\t`juego_pre_resp2_fk`\tINTEGER NOT NULL,\n" +
+            "\t`juego_pre_resp3_fk`\tINTEGER NOT NULL,\n" +
+            "\t`juego_pre_resp4_fk`\tINTEGER NOT NULL,\n" +
             "\tFOREIGN KEY(`planti_fk`) REFERENCES `platilla`(`planti_id`),\n" +
-            "\tFOREIGN KEY(`juego_pre_resp3`) REFERENCES `recurso`(`recur_id`),\n" +
-            "\tFOREIGN KEY(`juego_pre_resp4`) REFERENCES `recurso`(`recur_id`),\n" +
-            "\tFOREIGN KEY(`juego_pre_resp`) REFERENCES `recurso`(`recur_id`),\n" +
-            "\tFOREIGN KEY(`juego_pre_resp2`) REFERENCES `recurso`(`recur_id`))";
+            "\tFOREIGN KEY(`juego_pre_resp3_fk`) REFERENCES `recurso`(`recur_id`),\n" +
+            "\tFOREIGN KEY(`juego_pre_resp4_fk`) REFERENCES `recurso`(`recur_id`),\n" +
+            "\tFOREIGN KEY(`juego_pre_resp1_fk`) REFERENCES `recurso`(`recur_id`),\n" +
+            "\tFOREIGN KEY(`juego_pre_resp2_fk`) REFERENCES `recurso`(`recur_id`))";
 
     //tabla plantilla query
     String plantilla = "CREATE TABLE `plantilla` (\n" +

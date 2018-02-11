@@ -15,25 +15,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--  activity Carga -->
+
+        <activity
+            android:name=".CargaActivity"
+            android:screenOrientation="landscape" >
+        </activity>
+
+
+        <!--  activity memoria -->
         <activity
             android:name=".MemoriaActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity
-            android:name=".LenguaActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".CargaActivity"
-            android:screenOrientation="landscape" />
-        <activity android:name=".ListaActivity">
-
-        </activity>
-        <activity android:name=".Propias.SonidoListActivity">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+
+        <!--  activity lengua -->
+
+        <activity
+        android:name=".LenguaActivity"
+        android:screenOrientation="landscape">
+        </activity>
+
+        <!--  activity lista -->
+
+        <activity android:name=".ListaActivity">
+        </activity>
+
+
+
+        <!--  activity sonido  -->
+        <activity android:name=".Propias.SonidoListActivity">
+
         </activity>
     </application>
 

@@ -32,8 +32,10 @@ public class MemoriaActivity extends AppCompatActivity {
     private String APP_directorio="Galeria";
     private String Media_directorio= APP_directorio+"media";
     private String nombreImag;
-    private  String ruta =Environment.getExternalStorageDirectory()+File.separator+"AlzheimerApp"+File.separator;
-    private final int permisos=300;
+    private  String imacarpeta =Environment.getExternalStorageDirectory()+File.separator+"AlzheimerApp"+File.separator;
+    private  String sonidocarpeta =Environment.getExternalStorageDirectory()+File.separator+"Sounds";;
+
+    private static final int TRACK=300;
     private final int PHOTO_CODE=100;
     private final int SELECT_PICTURE=10;
     final int CROP_PIC_REQUEST_CODE = 1;
@@ -84,7 +86,7 @@ public class MemoriaActivity extends AppCompatActivity {
             }
         });
 
-        //boton lenguaje
+        //boton orientacion
         orientacion =(ImageButton)findViewById(R.id.orien_btn);
         orientacion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +124,17 @@ public class MemoriaActivity extends AppCompatActivity {
             }
         });
 
+        memo_sonido1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buscarAudio(view);
+            }
+        });
+
+
+
+
+
 
     }
 
@@ -151,7 +164,9 @@ public class MemoriaActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+       // super.onActivityResult(requestCode, resultCode, data);
+
+
         //vemos de donde viene nuestra respuesta
         switch (requestCode){
             case PHOTO_CODE:
@@ -161,6 +176,7 @@ public class MemoriaActivity extends AppCompatActivity {
                     Uri path =data.getData();
                     doCrop(path);
 
+                    Log.i("prueba","tomar foto");
 
                 }
                 break;
@@ -173,20 +189,34 @@ public class MemoriaActivity extends AppCompatActivity {
                     Uri path =data.getData();
                     doCrop(path);
 
+                    Log.i("prueba","selecpinture");
 
                 }
                 break;
-            //------------------------Cortar---------------------------
+            //------------------------Cortar Imagen---------------------------
             case CROP_PIC_REQUEST_CODE:
                 if(resultCode==RESULT_OK) {
-                    scanercarpeta(ruta+nombreImag,this);
+                    scanercarpeta(imacarpeta+nombreImag,this);
 
-                    Bitmap bitmap = BitmapFactory.decodeFile(ruta+nombreImag);
+                    Bitmap bitmap = BitmapFactory.decodeFile(imacarpeta+nombreImag);
                     memo_ima.setImageBitmap(bitmap);
+                    Log.i("prueba","cortar pintura");
                 }
 
                 break;
+            //----------------------Recibir Track de Audio-------------------
+            case TRACK:
 
+                if (resultCode==RESULT_OK){
+
+                    if(data.hasExtra("track")){
+                        String mensaje=data.getExtras().getString("track");
+                        nombre.setText(mensaje);
+
+                    }
+
+                }
+                break;
         }
     }
 
@@ -226,7 +256,7 @@ public class MemoriaActivity extends AppCompatActivity {
             Long fecha =System.currentTimeMillis()/1000;
             //combierto la fecha a string y la uno con la extencion para formar el nombre
             nombreImag =fecha.toString()+".jpg";
-            File nuevacarpeta=new File(ruta+nombreImag);
+            File nuevacarpeta=new File(imacarpeta+nombreImag);
             //guardamos
             cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(nuevacarpeta));
             startActivityForResult(cropIntent, CROP_PIC_REQUEST_CODE);
@@ -239,6 +269,24 @@ public class MemoriaActivity extends AppCompatActivity {
             toast.show();
         }
 
+
+    }
+
+    public void buscarAudio(View v){
+
+        File folder = new File(sonidocarpeta);
+        //se reviza si existen datos de audio que listar
+        if(folder.exists() && (folder.length()>0)){
+            //si posee audio se llama el activity lis y se listan los audios
+            Intent i=new Intent(getApplicationContext(),ListaActivity.class);
+            //i.putExtra("palabra","caraota");
+            startActivityForResult(i,TRACK);
+        }else {
+            //si no posee audio se envia un mensaje al usuario
+            String errorMessage = "No posees ingun sonido en tu galeria";
+            Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
     }
 

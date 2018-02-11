@@ -1,15 +1,17 @@
 package com.example.cruzmarcano.juego;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -21,11 +23,13 @@ public class ListaActivity extends AppCompatActivity {
     String files;
     MediaPlayer mp;
     Uri direccion;
+    String track;
+    Button aceptar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
-
+        aceptar=(Button)findViewById(R.id.Aceptar);
         //la clase File proporciona informacion de los archivos
         // pide como parametro la ruta del archivo a inspencionar
         File folder = new File(ruta);
@@ -33,6 +37,10 @@ public class ListaActivity extends AppCompatActivity {
         File[] listaVoz = folder.listFiles();
         //defino tamaño de arreglo
         valores=new String[listaVoz.length];
+
+        //Bundle b=getIntent().getExtras();
+        //String palabra=b.getString("palabra");
+        //Toast.makeText(this,palabra,Toast.LENGTH_LONG).show();
 
 
 
@@ -59,6 +67,7 @@ public class ListaActivity extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                track=ruta+File.separator+valores[i];
                 direccion= Uri.parse(ruta+File.separator+valores[i]);
                 mp = MediaPlayer.create(ListaActivity.this,direccion);
                 mp.start();
@@ -66,6 +75,21 @@ public class ListaActivity extends AppCompatActivity {
             }
         });
 
+        aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
+
+    }
+
+    @Override
+    public void finish() {
+        Intent data=new Intent();
+        data.putExtra("track",track);
+        setResult(RESULT_OK,data);
+        super.finish();
     }
 }
