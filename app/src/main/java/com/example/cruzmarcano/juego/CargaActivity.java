@@ -24,12 +24,10 @@ public class CargaActivity extends AppCompatActivity {
 
 
         if (db != null){
-            db.execSQL("INSERT INTO plantilla(planti_nombre) VALUES ('cartas');");
-            db.execSQL("INSERT INTO recurso(recur_nomb) VALUES ( 'cocina.jpg');");
-            db.execSQL("INSERT INTO grupo(grupo_nomb, grupo_color, grupo_imag) VALUES ('familia','verde',1);");
+            db.execSQL("INSERT INTO plantilla VALUES (null,'cartas');");
+            db.execSQL("INSERT INTO grupo(grupo_nomb, grupo_color, grupo_imag) VALUES ('familia','verde','imagen1.jpg');");
             db.execSQL("INSERT INTO jue_grup(juego_fk, grupo_fk) VALUES (1,1);");
-            db.execSQL("INSERT INTO juego(planti_fk, juego_nomb, juego_instr,juego_pre_resp1_fk,juego_pre_resp2_fk,juego_pre_resp3_fk,juego_pre_resp4_fk) VALUES (1,'cartas_1','seleccione un carta',1,1,1,1);");
-
+            db.execSQL("INSERT INTO juego VALUES(null, 1, 'carta','cartas para jugar','dato1.jpg',null,null,null);");
             db.close();
         }
 

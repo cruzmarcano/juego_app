@@ -29,12 +29,12 @@ import java.net.URI;
 
 public class MemoriaActivity extends AppCompatActivity {
 
-    private String APP_directorio="Galeria";
-    private String Media_directorio= APP_directorio+"media";
+    //private String APP_directorio="Galeria";
+    //private String Media_directorio= APP_directorio+"media";
     private String nombreImag;
-    private  String imacarpeta =Environment.getExternalStorageDirectory()+File.separator+"AlzheimerApp"+File.separator;
-    private  String sonidocarpeta =Environment.getExternalStorageDirectory()+File.separator+"Sounds";;
-
+    private String imacarpeta =Environment.getExternalStorageDirectory()+File.separator+"AlzheimerApp"+File.separator;
+    private String sonidocarpeta =Environment.getExternalStorageDirectory()+File.separator+"Sounds";;
+    public int plantillaTipo=1;
     private static final int TRACK=300;
     private final int PHOTO_CODE=100;
     private final int SELECT_PICTURE=10;
