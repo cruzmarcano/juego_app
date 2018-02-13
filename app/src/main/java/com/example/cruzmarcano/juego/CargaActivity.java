@@ -1,12 +1,15 @@
 package com.example.cruzmarcano.juego;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.cruzmarcano.juego.datos.BDalzheimer;
+import com.example.cruzmarcano.juego.utilidades.TablasCampos;
 
 public class CargaActivity extends AppCompatActivity {
 
@@ -24,11 +27,21 @@ public class CargaActivity extends AppCompatActivity {
 
 
         if (db != null){
-            db.execSQL("INSERT INTO plantilla VALUES (null,'cartas');");
-            db.execSQL("INSERT INTO grupo(grupo_nomb, grupo_color, grupo_imag) VALUES ('familia','verde','imagen1.jpg');");
-            db.execSQL("INSERT INTO jue_grup(juego_fk, grupo_fk) VALUES (1,1);");
-            db.execSQL("INSERT INTO juego VALUES(null, 1, 'carta','cartas para jugar','dato1.jpg',null,null,null);");
+            TablasCampos i=new TablasCampos(db);
+
+            ContentValues plantillaDatos=new ContentValues();
+            plantillaDatos.put(TablasCampos.PLANTILLA_NOMBRE,"Cartas");
+            //ContentValues grupoDatos=new ContentValues();
+            //grupoDatos.put(TablasCampos.GRUPO_NOMBRE,"Familia");
+            i.insertarDatos(TablasCampos.TABLA_PLANTILLA,plantillaDatos,TablasCampos.PLANTILLA_ID);
             db.close();
+
+            //db.execSQL("INSERT INTO plantilla VALUES (null,'cartas');");
+            //db.execSQL("INSERT INTO grupo(grupo_nomb, grupo_color, grupo_imag) VALUES ('familia','verde','imagen1.jpg');");
+            //db.execSQL("INSERT INTO jue_grup(juego_fk, grupo_fk) VALUES (1,1);");
+           // db.execSQL("INSERT INTO juego VALUES(null, 1, 'carta','cartas para jugar','dato1.jpg',null,null,null);");
+            //db.execSQL(TablasCampos.CREAR_TABLA_PLANTILLA);
+
         }
 
         /*
@@ -48,7 +61,7 @@ public class CargaActivity extends AppCompatActivity {
             }
         },500);*/
 
-        Intent intent = new Intent(CargaActivity.this, MemoriaActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(CargaActivity.this, MemoriaActivity.class);
+        //startActivity(intent);
     }
 }

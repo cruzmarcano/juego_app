@@ -29,6 +29,9 @@ import java.net.URI;
 
 public class MemoriaActivity extends AppCompatActivity {
 
+    private static final String TAG = "MemoriaActivity";
+
+
     //private String APP_directorio="Galeria";
     //private String Media_directorio= APP_directorio+"media";
     private String nombreImag;
