@@ -1,9 +1,11 @@
 package com.example.cruzmarcano.juego;
 
 import android.content.ActivityNotFoundException;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
@@ -23,6 +25,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cruzmarcano.juego.datos.BDalzheimer;
+import com.example.cruzmarcano.juego.utilidades.TablasCampos;
+import com.facebook.stetho.Stetho;
+
 import java.io.File;
 import java.net.URI;
 
@@ -30,6 +36,9 @@ import java.net.URI;
 public class MemoriaActivity extends AppCompatActivity {
 
     private static final String TAG = "MemoriaActivity";
+    private static final int plantilla = 1;
+    private ContentValues juegoDatos=new ContentValues();
+
 
 
     //private String APP_directorio="Galeria";
@@ -50,6 +59,7 @@ public class MemoriaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Stetho.initializeWithDefaults(this);
         setContentView(R.layout.activity_memoria);
 
         Toolbar toolbar= (Toolbar) findViewById(R.id.barra);
@@ -75,7 +85,7 @@ public class MemoriaActivity extends AppCompatActivity {
 
         guardar=(Button)findViewById(R.id.memo_guar_btn);
         //numero de la plantilla
-        int plantilla =1;
+        final int plantilla =1;
 
 
         //boton lenguaje
@@ -136,6 +146,24 @@ public class MemoriaActivity extends AppCompatActivity {
 
 
 
+        guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //se guardan lo sdatos de los campos y plantilla
+                juegoDatos.put(TablasCampos.JUEGO_NOMBRE,nombre.getText().toString());
+                juegoDatos.put(TablasCampos.JUEGO_INSTRUCCION,instrucion.getText().toString());
+                juegoDatos.put(TablasCampos.JUEGO_PLANTI_FK,plantilla);
+                //se llama a la base de datos
+                BDalzheimer tablas = new BDalzheimer(MemoriaActivity.this,"Alzhaimer",  null,1 );
+                //se abre la base de datos para permitir escritura
+                SQLiteDatabase db =  tablas.getWritableDatabase();
+                //se crea un objeto de la Tablas campos para usar sus metodos y poder insertar datos
+                TablasCampos i=new TablasCampos(db);
+                String mensaje=i.insertarDatos(TablasCampos.TABLA_JUEGO,juegoDatos,TablasCampos.JUEGO_ID);
+                Toast.makeText(MemoriaActivity.this,mensaje,Toast.LENGTH_LONG).show();
+                db.close();
+            }
+        });
 
 
 
@@ -181,6 +209,7 @@ public class MemoriaActivity extends AppCompatActivity {
 
                     Log.i("prueba","tomar foto");
 
+
                 }
                 break;
                 //------------------------Galeria--------------------
@@ -191,6 +220,8 @@ public class MemoriaActivity extends AppCompatActivity {
 
                     Uri path =data.getData();
                     doCrop(path);
+
+
 
                     Log.i("prueba","selecpinture");
 
@@ -203,7 +234,7 @@ public class MemoriaActivity extends AppCompatActivity {
 
                     Bitmap bitmap = BitmapFactory.decodeFile(imacarpeta+nombreImag);
                     memo_ima.setImageBitmap(bitmap);
-                    Log.i("prueba","cortar pintura");
+                    Log.i("prueba",imacarpeta+nombreImag);
                 }
 
                 break;
@@ -213,8 +244,8 @@ public class MemoriaActivity extends AppCompatActivity {
                 if (resultCode==RESULT_OK){
 
                     if(data.hasExtra("track")){
-                        String mensaje=data.getExtras().getString("track");
-                        nombre.setText(mensaje);
+                        String sonidoRuta=data.getExtras().getString("track");
+                        juegoDatos.put(TablasCampos.JUEGO_DATOS2,sonidoRuta);
 
                     }
 
@@ -261,6 +292,7 @@ public class MemoriaActivity extends AppCompatActivity {
             nombreImag =fecha.toString()+".jpg";
             File nuevacarpeta=new File(imacarpeta+nombreImag);
             //guardamos
+            juegoDatos.put(TablasCampos.JUEGO_DATOS1,imacarpeta+nombreImag);
             cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(nuevacarpeta));
             startActivityForResult(cropIntent, CROP_PIC_REQUEST_CODE);
         }
@@ -282,7 +314,7 @@ public class MemoriaActivity extends AppCompatActivity {
         if(folder.exists() && (folder.length()>0)){
             //si posee audio se llama el activity lis y se listan los audios
             Intent i=new Intent(getApplicationContext(),ListaActivity.class);
-            //i.putExtra("palabra","caraota");
+            //se va a la pantalla que lista los audios
             startActivityForResult(i,TRACK);
         }else {
             //si no posee audio se envia un mensaje al usuario

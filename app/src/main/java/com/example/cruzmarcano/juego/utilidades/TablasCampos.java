@@ -70,11 +70,17 @@ public class TablasCampos {
 
 
 
-    public Long insertarDatos(String tabla, ContentValues campos,String respuesta ){
+    public String insertarDatos(String tabla, ContentValues campos,String respuesta ){
 
         Long idResultado=this.bd.insert(tabla,respuesta,campos);
 
-        return  idResultado;
+        if(idResultado!=-1){
+            return "Guardado";
+        }else {
+            return "Error al guardar";
+        }
+
+
     }
 
 

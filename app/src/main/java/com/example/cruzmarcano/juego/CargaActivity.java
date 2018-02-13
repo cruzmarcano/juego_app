@@ -28,26 +28,39 @@ public class CargaActivity extends AppCompatActivity {
 
         if (db != null){
             TablasCampos i=new TablasCampos(db);
+
             //datos precargados tabala plantilla
             ContentValues plantillaDatos=new ContentValues();
             plantillaDatos.put(TablasCampos.PLANTILLA_NOMBRE,"Cartas");
-            Long respuesta1 =i.insertarDatos(TablasCampos.TABLA_PLANTILLA,plantillaDatos,TablasCampos.PLANTILLA_ID);
-            Toast.makeText(this," resultado="+respuesta1,Toast.LENGTH_LONG).show();
+            i.insertarDatos(TablasCampos.TABLA_PLANTILLA,plantillaDatos,TablasCampos.PLANTILLA_ID);
+
+
             //datos precargados tabala grupo
             ContentValues grupoDatos=new ContentValues();
             grupoDatos.put(TablasCampos.GRUPO_NOMBRE,"Mascotas");
             grupoDatos.put(TablasCampos.GRUPO_COLOR,"#98FB98");
             grupoDatos.put(TablasCampos.GRUPO_IMAGEN,"mascota.jpg");
-            Long respuesta =i.insertarDatos(TablasCampos.TABLA_GRUPO,grupoDatos,TablasCampos.GRUPO_ID);
-            Toast.makeText(this," resultado="+respuesta,Toast.LENGTH_LONG).show();
+            i.insertarDatos(TablasCampos.TABLA_GRUPO,grupoDatos,TablasCampos.GRUPO_ID);
+
+
+            //datos precargados tabala juego
+            ContentValues juegoDatos=new ContentValues();
+            juegoDatos.put(TablasCampos.JUEGO_NOMBRE,"Mascota");
+            juegoDatos.put(TablasCampos.JUEGO_PLANTI_FK,1);
+            juegoDatos.put(TablasCampos.JUEGO_INSTRUCCION,"seleccione el sonido que concida con la imagen");
+            juegoDatos.put(TablasCampos.JUEGO_DATOS1,"perro.jpg");
+            juegoDatos.put(TablasCampos.JUEGO_DATOS2,"sonido.mp3");
+            i.insertarDatos(TablasCampos.TABLA_JUEGO,juegoDatos,TablasCampos.JUEGO_ID);
+
+            //datos precargados tabala juegoGrupo
+            ContentValues juegoGrupoDatos=new ContentValues();
+            juegoGrupoDatos.put(TablasCampos.JG_GRUPO_FK,1);
+            juegoGrupoDatos.put(TablasCampos.JG_JUEGO_FK,1);
+            i.insertarDatos(TablasCampos.TABLA_JUEGO_GRUPO,juegoGrupoDatos,TablasCampos.JUEGO_GRUPO_ID);
 
             db.close();
-
+            //usar esta manera de cargar datos solo en la carga
             //db.execSQL("INSERT INTO plantilla VALUES (null,'cartas');");
-            //db.execSQL("INSERT INTO grupo(grupo_nomb, grupo_color, grupo_imag) VALUES ('familia','verde','imagen1.jpg');");
-            //db.execSQL("INSERT INTO jue_grup(juego_fk, grupo_fk) VALUES (1,1);");
-           // db.execSQL("INSERT INTO juego VALUES(null, 1, 'carta','cartas para jugar','dato1.jpg',null,null,null);");
-            //db.execSQL(TablasCampos.CREAR_TABLA_PLANTILLA);
 
         }
 
@@ -68,7 +81,7 @@ public class CargaActivity extends AppCompatActivity {
             }
         },500);*/
 
-        //Intent intent = new Intent(CargaActivity.this, MemoriaActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(CargaActivity.this, MemoriaActivity.class);
+        startActivity(intent);
     }
 }
