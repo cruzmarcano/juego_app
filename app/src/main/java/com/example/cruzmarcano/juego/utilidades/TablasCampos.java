@@ -29,7 +29,7 @@ public class TablasCampos {
     // query para crear tabla Grupo
     public static final String CREAR_TABLA_GRUPO= "CREATE TABLE " +  TABLA_GRUPO + " (" + GRUPO_ID +
             " INTEGER PRIMARY KEY AUTOINCREMENT, " + GRUPO_NOMBRE + " TEXT NOT NULL," + GRUPO_COLOR +
-            "TEXT NOT NULL,"+ GRUPO_IMAGEN +"TEXT NOT NULL)";
+            " TEXT NOT NULL,"+ GRUPO_IMAGEN +" TEXT NOT NULL)";
 //----------------------------------------------------------------------------------------------------------------
 
     //constantes tabla Juego

@@ -28,12 +28,19 @@ public class CargaActivity extends AppCompatActivity {
 
         if (db != null){
             TablasCampos i=new TablasCampos(db);
-
+            //datos precargados tabala plantilla
             ContentValues plantillaDatos=new ContentValues();
             plantillaDatos.put(TablasCampos.PLANTILLA_NOMBRE,"Cartas");
-            //ContentValues grupoDatos=new ContentValues();
-            //grupoDatos.put(TablasCampos.GRUPO_NOMBRE,"Familia");
-            i.insertarDatos(TablasCampos.TABLA_PLANTILLA,plantillaDatos,TablasCampos.PLANTILLA_ID);
+            Long respuesta1 =i.insertarDatos(TablasCampos.TABLA_PLANTILLA,plantillaDatos,TablasCampos.PLANTILLA_ID);
+            Toast.makeText(this," resultado="+respuesta1,Toast.LENGTH_LONG).show();
+            //datos precargados tabala grupo
+            ContentValues grupoDatos=new ContentValues();
+            grupoDatos.put(TablasCampos.GRUPO_NOMBRE,"Mascotas");
+            grupoDatos.put(TablasCampos.GRUPO_COLOR,"#98FB98");
+            grupoDatos.put(TablasCampos.GRUPO_IMAGEN,"mascota.jpg");
+            Long respuesta =i.insertarDatos(TablasCampos.TABLA_GRUPO,grupoDatos,TablasCampos.GRUPO_ID);
+            Toast.makeText(this," resultado="+respuesta,Toast.LENGTH_LONG).show();
+
             db.close();
 
             //db.execSQL("INSERT INTO plantilla VALUES (null,'cartas');");
