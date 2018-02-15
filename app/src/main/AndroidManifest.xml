@@ -16,11 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--  activity Carga -->
+        <!-- activity Carga -->
 
         <activity
             android:name=".CargaActivity"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape">
+
+        </activity>
+
+        <!-- activity principal o pantalla de inicio -->
+
+        <activity android:name=".PrincipalActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,35 +35,25 @@
             </intent-filter>
         </activity>
 
-
-        <!--  activity memoria -->
+        <!-- activity memoria -->
         <activity
             android:name=".MemoriaActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
-
-        </activity>
-
-
-        <!--  activity lengua -->
+        <!-- activity lengua -->
 
         <activity
-        android:name=".LenguaActivity"
-        android:screenOrientation="landscape">
-        </activity>
+            android:name=".LenguaActivity"
+            android:screenOrientation="landscape"></activity>
 
-        <!--  activity lista -->
+        <!-- activity lista -->
 
-        <activity android:name=".ListaActivity">
-        </activity>
+        <activity android:name=".ListaActivity"></activity>
 
+        <!-- activity sonido -->
+        <activity android:name=".Propias.SonidoListActivity"></activity>
 
-
-        <!--  activity sonido  -->
-        <activity android:name=".Propias.SonidoListActivity">
-
-        </activity>
     </application>
 
 </manifest>

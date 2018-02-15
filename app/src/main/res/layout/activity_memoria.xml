@@ -97,6 +97,7 @@
                 android:ems="10"
                 android:hint="Indique las instrucciones"
                 android:inputType="textPersonName"
+                android:maxLength="60"
                 android:paddingLeft="6px"
                 android:textColor="@color/gris" />
 
