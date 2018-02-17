@@ -150,18 +150,17 @@ public class MemoriaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //se guardan lo sdatos de los campos y plantilla
-                juegoDatos.put(TablasCampos.JUEGO_NOMBRE,nombre.getText().toString());
-                juegoDatos.put(TablasCampos.JUEGO_INSTRUCCION,instrucion.getText().toString());
-                juegoDatos.put(TablasCampos.JUEGO_PLANTI_FK,plantilla);
+                juegoDatos.put(BDalzheimer.JUEGO_NOMBRE,nombre.getText().toString());
+                juegoDatos.put(BDalzheimer.JUEGO_INSTRUCCION,instrucion.getText().toString());
+                juegoDatos.put(BDalzheimer.JUEGO_PLANTI_FK,plantilla);
                 //se llama a la base de datos
-                BDalzheimer tablas = new BDalzheimer(MemoriaActivity.this,"Alzhaimer",  null,1 );
-                //se abre la base de datos para permitir escritura
-                SQLiteDatabase db =  tablas.getWritableDatabase();
+                BDalzheimer tablas = new BDalzheimer(MemoriaActivity.this);
+
                 //se crea un objeto de la Tablas campos para usar sus metodos y poder insertar datos
-                TablasCampos i=new TablasCampos(db);
-                String mensaje=i.insertarDatos(TablasCampos.TABLA_JUEGO,juegoDatos,TablasCampos.JUEGO_ID);
+                TablasCampos i=new TablasCampos(MemoriaActivity.this);
+                String mensaje=i.insertarDatos(BDalzheimer.TABLA_JUEGO,juegoDatos,BDalzheimer.JUEGO_ID);
                 Toast.makeText(MemoriaActivity.this,mensaje,Toast.LENGTH_LONG).show();
-                db.close();
+
             }
         });
 
@@ -245,7 +244,7 @@ public class MemoriaActivity extends AppCompatActivity {
 
                     if(data.hasExtra("track")){
                         String sonidoRuta=data.getExtras().getString("track");
-                        juegoDatos.put(TablasCampos.JUEGO_DATOS2,sonidoRuta);
+                        juegoDatos.put(BDalzheimer.JUEGO_DATOS2,sonidoRuta);
 
                     }
 
@@ -292,7 +291,7 @@ public class MemoriaActivity extends AppCompatActivity {
             nombreImag =fecha.toString()+".jpg";
             File nuevacarpeta=new File(imacarpeta+nombreImag);
             //guardamos
-            juegoDatos.put(TablasCampos.JUEGO_DATOS1,imacarpeta+nombreImag);
+            juegoDatos.put(BDalzheimer.JUEGO_DATOS1,imacarpeta+nombreImag);
             cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(nuevacarpeta));
             startActivityForResult(cropIntent, CROP_PIC_REQUEST_CODE);
         }
