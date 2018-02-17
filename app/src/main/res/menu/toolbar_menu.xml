@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <item
+            android:id="@+id/inte1"
+            android:title="Crear juego"
+            android:background="@color/negro"/>
+        <item
+            android:id="@+id/inte2"
+            android:title="Crear Grupo"/>
+        <item
+            android:id="@+id/inte3"
+            android:title="Cerrar App"/>
+
+
+
+
+
+
+</menu>

@@ -7,10 +7,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
+import android.widget.Toast;
 
 public class PrincipalActivity extends AppCompatActivity {
+    ImageButton botonMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,25 @@ public class PrincipalActivity extends AppCompatActivity {
 
         viewPager.setAdapter(new AdaptadorDePaginas (getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
+
+        botonMenu=(ImageButton) findViewById(R.id.botonMenu);
+        botonMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final PopupMenu popupMenu= new PopupMenu(PrincipalActivity.this,botonMenu);
+                popupMenu.getMenuInflater().inflate(R.menu.toolbar_menu,popupMenu.getMenu());
+
+                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(PrincipalActivity.this," "+ item.getTitle(),Toast.LENGTH_LONG).show();
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
 
 
 
