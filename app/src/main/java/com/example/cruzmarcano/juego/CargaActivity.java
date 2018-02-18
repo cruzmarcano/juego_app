@@ -26,8 +26,11 @@ public class CargaActivity extends AppCompatActivity {
         //ponemos en modo escritura
         SQLiteDatabase db =  tablas.getWritableDatabase();
         if(db != null){
-            db.execSQL("INSERT INTO plantilla VALUES (null,'cartas');");
-            db.execSQL("INSERT INTO plantilla VALUES (null,'memoria');");
+            db.execSQL("INSERT INTO plantilla VALUES (null,'memoria','#e7c539');");
+            db.execSQL("INSERT INTO plantilla VALUES (null,'lenguaje','#cb74a2');");
+            db.execSQL("INSERT INTO plantilla VALUES (null,'orientacion','#a3bd31');");
+            db.execSQL("INSERT INTO plantilla VALUES (null,'arencion','#3D6AAC');");
+            db.execSQL("INSERT INTO plantilla VALUES (null,'visual','#782d83');");
             db.execSQL("INSERT INTO juego VALUES (null,'mascota',1,'sleccione imagen','dato1',null,null,null);");
             db.execSQL("INSERT INTO juego VALUES (null,'familia',1,'sleccione imagen','dato2',null,null,null);");
             db.execSQL("INSERT INTO juego VALUES (null,'comida',1,'sleccione imagen','dato3',null,null,null);");

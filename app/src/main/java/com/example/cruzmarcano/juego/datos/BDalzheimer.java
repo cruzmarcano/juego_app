@@ -23,12 +23,13 @@ public class BDalzheimer extends SQLiteOpenHelper {
         public static final String TABLA_PLANTILLA="plantilla";
         public static final String PLANTILLA_ID="plantiId";
         public static final String PLANTILLA_NOMBRE="plantiNombre";
+        public static final String PLANTILLA_COLOR="plantiColor";
     public static final String[] allcolumPlantilla= new String[]{
             PLANTILLA_ID, PLANTILLA_NOMBRE
     };
     // query para crear tabla plantila
     public static final String CREAR_TABLA_PLANTILLA= "CREATE TABLE " +  TABLA_PLANTILLA +
-            "(" + PLANTILLA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PLANTILLA_NOMBRE + " TEXT NOT NULL)";
+            "(" + PLANTILLA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PLANTILLA_NOMBRE + " TEXT NOT NULL," + PLANTILLA_COLOR + " TEXT NOT NULL)";
     //---------------------------------------------------------------------------------------------------------------
     //constantes tabla grupo
     public static final String TABLA_GRUPO="grupo";
