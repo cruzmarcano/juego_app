@@ -160,6 +160,8 @@ public class MemoriaActivity extends AppCompatActivity {
                 TablasCampos i=new TablasCampos(MemoriaActivity.this);
                 String mensaje=i.insertarDatos(BDalzheimer.TABLA_JUEGO,juegoDatos,BDalzheimer.JUEGO_ID);
                 Toast.makeText(MemoriaActivity.this,mensaje,Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MemoriaActivity.this, PrincipalActivity.class);
+                startActivity(intent);
 
             }
         });

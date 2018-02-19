@@ -8,7 +8,7 @@ package com.example.cruzmarcano.juego.pojo;
 // y trabajarlos en el CardView
 public class EjerciciosPojo {
     String nombre, instruccion, dato1, dato2, dato3,dato4;
-    int id, fk,color;
+    int id, fk;
 
     public EjerciciosPojo(String nombre, String instruccion, String dato1, String dato2, String dato3, String dato4, int id, int fk, int color) {
         this.nombre = nombre;
@@ -19,7 +19,7 @@ public class EjerciciosPojo {
         this.dato4 = dato4;
         this.id = id;
         this.fk = fk;
-        this.color = color;
+
     }
 
     public EjerciciosPojo() {
@@ -89,11 +89,5 @@ public class EjerciciosPojo {
         this.fk = fk;
     }
 
-    public int getColor() {
-        return color;
-    }
 
-    public void setColor(int color) {
-        this.color = color;
-    }
 }

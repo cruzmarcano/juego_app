@@ -1,20 +1,17 @@
-package com.example.cruzmarcano.juego.utilidades;
+package com.example.cruzmarcano.juego.adaptadores;
 
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.cruzmarcano.juego.Propias.RecyclerViewAdactador;
 import com.example.cruzmarcano.juego.R;
+import com.example.cruzmarcano.juego.pojo.EjerciciosPojo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +24,11 @@ import java.util.List;
 public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.ViewHolder>{
     Context contexto;
     //estos lista contiene los datos que va a recibir
-    ArrayList<String> nombreJuegoList;
+    List<EjerciciosPojo> ejerciciospojo;
     //este es el constructor
-    public EjercicioAdapter(Context contexto, ArrayList<String> nombreJuegoList) {
+    public EjercicioAdapter(Context contexto, List<EjerciciosPojo> ejerciciospojo) {
         this.contexto = contexto;
-        this.nombreJuegoList = nombreJuegoList;
+        this.ejerciciospojo = ejerciciospojo;
     }
 
     @Override
@@ -46,7 +43,8 @@ public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //aqui se enlazan la data con cada ViewHolder
-        holder.nombre.setText(nombreJuegoList.get(position));
+        holder.nombre.setText(ejerciciospojo.get(position).getNombre());
+        Log.v("prueba",ejerciciospojo.get(position).getNombre());
         //color de fondo de la tarjeta
         holder.tarjeta.setCardBackgroundColor(contexto.getResources().getColor(R.color.azul2));
 
@@ -55,7 +53,7 @@ public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.View
     @Override
     public int getItemCount() {
         //cuantos va a mostrar
-        return nombreJuegoList.size();
+        return ejerciciospojo.size();
     }
 
     //creamos nuestra propia clase ViewHolder y extendemos de RecyclerView y ViewHolder del paquete

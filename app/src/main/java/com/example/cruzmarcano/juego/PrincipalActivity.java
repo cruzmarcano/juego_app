@@ -1,5 +1,6 @@
 package com.example.cruzmarcano.juego;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -48,7 +49,8 @@ public class PrincipalActivity extends AppCompatActivity {
                  popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(PrincipalActivity.this," "+ item.getTitle(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(PrincipalActivity.this, item.getTitle(),Toast.LENGTH_LONG).show();
+                        opcion(item.getTitle().toString());
                         return false;
                     }
                 });
@@ -99,6 +101,17 @@ public class PrincipalActivity extends AppCompatActivity {
                     return "pagina1";
             }
 
+        }
+
+    }
+
+    public void opcion (String item){
+        switch (item){
+            case "Crear juego":
+                Intent intent = new Intent(PrincipalActivity.this, MemoriaActivity.class);
+                startActivity(intent);
+                this.finish();
+                break;
         }
     }
 }

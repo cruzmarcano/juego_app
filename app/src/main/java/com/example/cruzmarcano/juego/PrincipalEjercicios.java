@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.cruzmarcano.juego.utilidades.EjercicioAdapter;
+import com.example.cruzmarcano.juego.adaptadores.EjercicioAdapter;
+import com.example.cruzmarcano.juego.utilidades.TablasCampos;
 
 import java.util.ArrayList;
 
@@ -17,20 +18,12 @@ import java.util.ArrayList;
 
 public class PrincipalEjercicios extends Fragment {
     RecyclerView listaEjercicio;
-    ArrayList<String> datos;
+    TablasCampos datos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        datos=new TablasCampos(getContext());
 
-        datos=new ArrayList<>();
-        datos.add("memoria");
-        datos.add("familia");
-        datos.add("animales");
-        datos.add("comida");
-        datos.add("frutas");
-        datos.add("verduras");
-        datos.add("piedras");
-        datos.add("saltar");
         //la crear un fragment este deve devolver una vista por eso se crea el vistaRaiz que crea infla
         View vistaRaiz = inflater.inflate(R.layout.principal_ejercicios, container, false);
         //cateamos el recyclerView
@@ -41,7 +34,7 @@ public class PrincipalEjercicios extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
         listaEjercicio.setLayoutManager(gridLayoutManager);
 
-        EjercicioAdapter adactador=new EjercicioAdapter(getContext(), datos);
+        EjercicioAdapter adactador=new EjercicioAdapter(getContext(), datos.selecEjercicios());
         listaEjercicio.setAdapter(adactador);
 
 
