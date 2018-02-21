@@ -21,40 +21,43 @@
         <activity
             android:name=".CargaActivity"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- activity principal o pantalla de inicio -->
 
-        <activity android:name=".PrincipalActivity"
-            android:screenOrientation="landscape">
-
-
-        </activity>
+        <activity
+            android:name=".PrincipalActivity"
+            android:screenOrientation="landscape"></activity>
 
         <!-- activity memoria -->
         <activity
             android:name=".MemoriaActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <!-- activity lengua -->
 
         <activity
             android:name=".LenguaActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
 
         <!-- activity lista -->
 
-        <activity android:name=".ListaActivity"></activity>
+        <activity android:name=".ListaActivity" />
 
         <!-- activity sonido -->
-        <activity android:name=".Propias.SonidoListActivity"></activity>
+        <activity android:name=".Propias.SonidoListActivity" />
 
+        <activity android:name=".EjercicioAtencion"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
