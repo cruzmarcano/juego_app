@@ -59,6 +59,7 @@ public class MemoriaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //ver base de datos
         Stetho.initializeWithDefaults(this);
         setContentView(R.layout.activity_memoria);
 
@@ -276,6 +277,9 @@ public class MemoriaActivity extends AppCompatActivity {
     }
 
     private void doCrop(Uri picUri) {
+
+
+
         try {
 
             Intent cropIntent = new Intent("com.android.camera.action.CROP");
