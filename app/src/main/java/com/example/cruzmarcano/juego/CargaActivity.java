@@ -35,10 +35,10 @@ public class CargaActivity extends AppCompatActivity {
             db.execSQL("INSERT INTO plantilla VALUES (null,'orientacion','#a3bd31');");
             db.execSQL("INSERT INTO plantilla VALUES (null,'arencion','#3D6AAC');");
             db.execSQL("INSERT INTO plantilla VALUES (null,'visual','#782d83');");
-            db.execSQL("INSERT INTO juego VALUES (null,1,'Mascota','sleccione el sonido que tenga tenga relacion con la  imagen','cerdo','cerdo',null,null);");
-            db.execSQL("INSERT INTO juego VALUES (null,1,'familia','sleccione imagen','dato2',null,null,null);");
-            db.execSQL("INSERT INTO juego VALUES (null,1,'comida','sleccione imagen','dato3',null,null,null);");
-            db.execSQL("INSERT INTO juego VALUES (null,1,'canciones','sleccione imagen','dato4',null,null,null);");
+            db.execSQL("INSERT INTO juego VALUES (null,1,'Mascota','seleccione el sonido que tenga tenga relacion con la  imagen','cerdo','cerdo',null,null);");
+            db.execSQL("INSERT INTO juego VALUES (null,1,'familia','seleccione el sonido que tenga tenga relacion con la  imagen','bebe','bebe',null,null);");
+            db.execSQL("INSERT INTO juego VALUES (null,1,'Musica','Seleccione sonido del intrumento musicar mostrado en la imagen','violin','violin',null,null);");
+            db.execSQL("INSERT INTO juego VALUES (null,1,'Veiculos','Que sonido esta relacionado con la imagen ','carro','carro',null,null);");
             db.close();
         }
 

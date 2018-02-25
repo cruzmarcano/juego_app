@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.net.URI;
@@ -61,17 +62,12 @@ public class EjercicioAtencion extends AppCompatActivity implements View.OnClick
 
         instruccion=(TextView)findViewById(R.id.instruccion);
         toolBar=(TextView)findViewById(R.id.toolBar);
-        //lista de prueba
-        datos=new ArrayList<String>();
-        datos.add("Adivina");
-        datos.add("Seleciona el sonido relacionado con la imagen");
-        datos.add("android.resource://com.example.cruzmarcano.juego/drawable/cerdo");
-        datos.add("cerdo");
-        respCorrepta=datos.get(3);
+
+        respCorrepta=informacion[3];
 
         //este arreglo contiene la informacion que debe ser asignada a cada boton
         String[] contenido=new String[3];
-        contenido[0]=datos.get(3);
+        contenido[0]=informacion[3];
         contenido[1]="vaca";
         contenido[2]="gato";
 
@@ -81,7 +77,18 @@ public class EjercicioAtencion extends AppCompatActivity implements View.OnClick
         //carga las instrucciones
         instruccion.setText(informacion[1]);
         //direccion uri de la imagen
-        Uri path = Uri.parse(datos.get(2));
+
+        if(informacion[2].length()<8){
+            //optenemos el identificador necesario para la libreria soundPool
+            int ima_id = getApplicationContext().getResources().getIdentifier(informacion[2], "drawable",
+                    getApplicationContext().getPackageName());
+            imagen.setImageResource(ima_id );
+        }else{
+            Uri path = Uri.parse(informacion[2]);
+            //cargar imagen
+            imagen.setImageURI(path);
+        }
+
 
 
 
@@ -149,9 +156,6 @@ public class EjercicioAtencion extends AppCompatActivity implements View.OnClick
         }
 
 
-        //cargar imagen
-        imagen.setImageURI(path);
-
 
     }
 
@@ -184,9 +188,9 @@ public class EjercicioAtencion extends AppCompatActivity implements View.OnClick
             case R.id.continuar_btn:
                 //soundPool.play(cargaSonido3,1,1,0,0,1);
                 if(respuesta==respCorrepta){
-                    Log.i("prueba","su respuesta es correpta");
+                    Toast.makeText(this,"Correcto",Toast.LENGTH_SHORT).show();
                 }else {
-                    Log.i("prueba","respuesta equivocada");
+                    Toast.makeText(this,"Respuesta Equivocada",Toast.LENGTH_SHORT).show();
                 }
 
 
