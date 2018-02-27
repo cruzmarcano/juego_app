@@ -8,28 +8,20 @@ public class GruposPojo {
 int id,fk;
 String nombre, color, imagen;
 
-    public GruposPojo(int id, int fk, String nombre, String color, String imagen) {
+    public GruposPojo(int id, String nombre, String color, String imagen) {
         this.id = id;
-        this.fk = fk;
         this.nombre = nombre;
         this.color = color;
         this.imagen = imagen;
     }
 
-    public int getId() {
-        return id;
+    public GruposPojo() {
     }
+
+    public int getId() {return id;}
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getFk() {
-        return fk;
-    }
-
-    public void setFk(int fk) {
-        this.fk = fk;
     }
 
     public String getNombre() {

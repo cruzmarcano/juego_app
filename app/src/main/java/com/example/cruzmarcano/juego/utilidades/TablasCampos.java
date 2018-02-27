@@ -9,6 +9,7 @@ import android.widget.Adapter;
 
 import com.example.cruzmarcano.juego.datos.BDalzheimer;
 import com.example.cruzmarcano.juego.pojo.EjerciciosPojo;
+import com.example.cruzmarcano.juego.pojo.GruposPojo;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -80,6 +81,28 @@ public class TablasCampos {
         }
         cerraDatabase();
         return ejerciciosPojo;
+
+    }
+
+    public List<GruposPojo> selecGrupos (){
+        abrirDatabase();
+        Cursor cursor=this.baseDeDatos.rawQuery("select * from grupo",null);
+        List<GruposPojo> gruposPojo=new ArrayList<GruposPojo>();
+        if(cursor.getCount()>0){
+
+            while (cursor.moveToNext()){
+                GruposPojo grupo=new GruposPojo();
+                grupo.setId(cursor.getInt(cursor.getColumnIndex(BDalzheimer.GRUPO_ID)));
+                grupo.setNombre(cursor.getString(cursor.getColumnIndex(BDalzheimer.GRUPO_NOMBRE)));
+                grupo.setColor(cursor.getString(cursor.getColumnIndex(BDalzheimer.GRUPO_COLOR)));
+                grupo.setImagen(cursor.getString(cursor.getColumnIndex(BDalzheimer.GRUPO_IMAGEN)));
+
+                gruposPojo.add(grupo);
+
+            }
+        }
+        cerraDatabase();
+        return gruposPojo;
 
     }
 

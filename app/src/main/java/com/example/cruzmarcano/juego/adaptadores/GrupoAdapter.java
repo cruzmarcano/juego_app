@@ -5,13 +5,11 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.cruzmarcano.juego.R;
 import com.example.cruzmarcano.juego.pojo.GruposPojo;
 
@@ -45,6 +43,19 @@ public class GrupoAdapter extends RecyclerView.Adapter<GrupoAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.nombre.setText(gruposPojos.get(position).getNombre());
+
+        if(gruposPojos.get(position).getImagen().length()<8){
+            //optenemos el identificador necesario para la libreria soundPool
+            int ima_id = contexto.getResources().getIdentifier(gruposPojos.get(position).getImagen(), "drawable",
+                    contexto.getPackageName());
+            holder.imagen.setImageResource(ima_id);
+
+        }else{
+            Uri path = Uri.parse(gruposPojos.get(position).getImagen());
+            //cargar imagen
+            holder.imagen.setImageURI(path);
+        }
+
         //color de fondo de la tarjeta
         holder.tarjetagrup.setCardBackgroundColor(Color.parseColor(gruposPojos.get(position).getColor()));
 
