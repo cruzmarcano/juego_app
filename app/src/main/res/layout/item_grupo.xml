@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardGrupo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/azul"
+    android:orientation="vertical"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="1dp"
+    card_view:cardUseCompatPadding="true">
+
+
+    <LinearLayout
+        android:id="@+id/linearGrup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageGrup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:srcCompat="@drawable/cerdo" />
+
+        <TextView
+            android:id="@+id/nombreGrup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/blanco" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

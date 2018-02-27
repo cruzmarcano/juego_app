@@ -51,13 +51,15 @@
         <activity android:name=".ListaActivity" />
 
         <!-- activity sonido -->
-        <activity android:name=".Propias.SonidoListActivity" />
+        <activity android:name=".Propias.SonidoListActivity"
+            android:screenOrientation="landscape"/>
 
         <activity android:name=".EjercicioAtencion"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         </activity>
+
     </application>
 
 </manifest>

@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +18,8 @@ import com.example.cruzmarcano.juego.EjercicioAtencion;
 import com.example.cruzmarcano.juego.R;
 import com.example.cruzmarcano.juego.pojo.EjerciciosPojo;
 
-import java.util.ArrayList;
+
+
 import java.util.List;
 
 /**
@@ -44,11 +47,13 @@ public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.View
         View vistaItem=LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ejercicio,parent,false);
         //cremos un objeto ViewHolder que es el nuestro y le pasamos la vista
         ViewHolder viewHolder= new ViewHolder(vistaItem);
+
+
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         //aqui se enlazan la data con cada ViewHolder
         holder.nombre.setText(ejerciciospojo.get(position).getNombre());
         Log.v("prueba",ejerciciospojo.get(position).getNombre());
@@ -56,6 +61,8 @@ public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.View
 
         //color de fondo de la tarjeta
         holder.tarjeta.setCardBackgroundColor(contexto.getResources().getColor(R.color.azul2));
+        //Toast.makeText(contexto,"este="+Integer.toString(s),Toast.LENGTH_LONG).show();
+
         holder.tarjeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -24,6 +24,8 @@ public class PrincipalEjercicios extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         datos=new TablasCampos(getContext());
 
+
+
         //al crear un fragment este deve devolver una vista por eso se crea el vistaRaiz que crea infla
         View vistaRaiz = inflater.inflate(R.layout.principal_ejercicios, container, false);
         //cateamos el recyclerView
