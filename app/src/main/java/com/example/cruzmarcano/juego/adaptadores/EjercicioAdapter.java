@@ -56,7 +56,7 @@ public class EjercicioAdapter extends RecyclerView.Adapter<EjercicioAdapter.View
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         //aqui se enlazan la data con cada ViewHolder
         holder.nombre.setText(ejerciciospojo.get(position).getNombre());
-        Log.v("prueba",ejerciciospojo.get(position).getNombre());
+
 
 
         //color de fondo de la tarjeta

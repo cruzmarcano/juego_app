@@ -26,13 +26,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <!-- activity principal o pantalla de inicio -->
 
         <activity
             android:name=".PrincipalActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
 
         <!-- activity memoria -->
         <activity
@@ -51,15 +52,17 @@
         <activity android:name=".ListaActivity" />
 
         <!-- activity sonido -->
-        <activity android:name=".Propias.SonidoListActivity"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".EjercicioAtencion"
+        <activity
+            android:name=".Propias.SonidoListActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".EjercicioAtencion"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".CrearGrupoActivity"
+            android:screenOrientation="landscape">
 
         </activity>
-
     </application>
 
 </manifest>
