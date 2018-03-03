@@ -49,7 +49,6 @@ public class PrincipalActivity extends AppCompatActivity {
                  popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(PrincipalActivity.this, item.getTitle(),Toast.LENGTH_LONG).show();
                         opcion(item.getTitle().toString());
                         return false;
                     }

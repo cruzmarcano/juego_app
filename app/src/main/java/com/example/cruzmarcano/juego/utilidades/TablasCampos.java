@@ -106,6 +106,29 @@ public class TablasCampos {
 
     }
 
+    public String guardarGrupo(ContentValues campos, ArrayList<Integer> datos){
+
+        abrirDatabase();
+        Long idResultado=this.baseDeDatos.insert(BDalzheimer.TABLA_GRUPO,BDalzheimer.GRUPO_ID,campos);
+        int idGrupo=idResultado.intValue();
+        if(idResultado!=-1){
+
+            for (int i = 0; i < datos.size(); i++){
+
+                this.baseDeDatos.execSQL("INSERT INTO "+ BDalzheimer.TABLA_JUEGO_GRUPO  +" VALUES (null,'"+ idGrupo+ "','"+ datos.get(i) +"');");
+            }
+
+            cerraDatabase();
+
+            return "Guardado";
+        }else {
+            cerraDatabase();
+            return "Error al guardar";
+        }
+
+
+    }
+
 
 
 

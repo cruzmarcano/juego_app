@@ -47,9 +47,10 @@
             android:name=".LenguaActivity"
             android:screenOrientation="landscape" />
 
-        <!-- activity lista -->
+        <!-- activity lista hay que mejorar no se adapta -->
 
-        <activity android:name=".ListaActivity" />
+        <activity android:name=".ListaActivity"
+            />
 
         <!-- activity sonido -->
         <activity

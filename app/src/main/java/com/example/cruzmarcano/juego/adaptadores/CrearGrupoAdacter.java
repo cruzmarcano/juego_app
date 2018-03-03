@@ -6,11 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cruzmarcano.juego.R;
 import com.example.cruzmarcano.juego.pojo.EjerciciosPojo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,12 +24,14 @@ public class CrearGrupoAdacter extends RecyclerView.Adapter<CrearGrupoAdacter.Vi
     Context contexto;
     //estos lista contiene los datos que va a recibir
     List<EjerciciosPojo> ejerciciospojo;
+    private ArrayList<Integer> numbers;
+
 
     public CrearGrupoAdacter(Context contexto, List<EjerciciosPojo> ejerciciospojo) {
         this.contexto = contexto;
         this.ejerciciospojo = ejerciciospojo;
+        this.numbers = numbers;
     }
-
 
     @Override
     public CrearGrupoAdacter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,8 +41,26 @@ public class CrearGrupoAdacter extends RecyclerView.Adapter<CrearGrupoAdacter.Vi
     }
 
     @Override
-    public void onBindViewHolder(CrearGrupoAdacter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final CrearGrupoAdacter.ViewHolder holder, final int position) {
+        numbers=new ArrayList<Integer>();
+
         holder.nombre.setText(ejerciciospojo.get(position).getNombre());
+        holder.checkBox.setOnCheckedChangeListener(null);
+        final String id= Integer.toString(ejerciciospojo.get(position).getId());
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(holder.checkBox.isChecked()){
+                    numbers.add(position);
+                }else if (!holder.checkBox.isChecked()){
+                    numbers.remove(position);
+                }
+
+            }
+        });
+
+
+
 
         //color de fondo de la tarjeta
         holder.tarjeta.setCardBackgroundColor(contexto.getResources().getColor(R.color.azul2));
@@ -54,10 +77,14 @@ public class CrearGrupoAdacter extends RecyclerView.Adapter<CrearGrupoAdacter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView tarjeta;
         private TextView nombre;
+        private CheckBox checkBox;
+
         public ViewHolder(View itemView) {
             super(itemView);
             tarjeta=(CardView)itemView.findViewById(R.id.itemGrupEjer);
             nombre=(TextView)itemView.findViewById(R.id.nombEjerc);
+            checkBox=(CheckBox)itemView.findViewById(R.id.checkBox);
+
         }
     }
 }
