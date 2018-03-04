@@ -21,11 +21,6 @@
         <activity
             android:name=".CargaActivity"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 
@@ -49,8 +44,7 @@
 
         <!-- activity lista hay que mejorar no se adapta -->
 
-        <activity android:name=".ListaActivity"
-            />
+        <activity android:name=".ListaActivity" />
 
         <!-- activity sonido -->
         <activity
@@ -59,10 +53,21 @@
         <activity
             android:name=".EjercicioAtencion"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".CrearGrupoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".CrearGrupoActivity"
             android:screenOrientation="landscape">
 
+        </activity>
+        <!-- activity para agregar los juegos -->
+        <activity
+            android:name=".PrincipalJuegos"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -24,13 +24,15 @@ public class CrearGrupoAdacter extends RecyclerView.Adapter<CrearGrupoAdacter.Vi
     Context contexto;
     //estos lista contiene los datos que va a recibir
     List<EjerciciosPojo> ejerciciospojo;
-    private ArrayList<Integer> numbers;
+    //esta lista almacena el id de los juegos cuyos  checkbox fueron marcados
+    private ArrayList<Integer> idJuegosCheckbox;
+
 
 
     public CrearGrupoAdacter(Context contexto, List<EjerciciosPojo> ejerciciospojo) {
         this.contexto = contexto;
         this.ejerciciospojo = ejerciciospojo;
-        this.numbers = numbers;
+
     }
 
     @Override
@@ -42,18 +44,33 @@ public class CrearGrupoAdacter extends RecyclerView.Adapter<CrearGrupoAdacter.Vi
 
     @Override
     public void onBindViewHolder(final CrearGrupoAdacter.ViewHolder holder, final int position) {
-        numbers=new ArrayList<Integer>();
-
+        //se inicializa el arreglo
+        idJuegosCheckbox=new ArrayList<Integer>();
+        //esto captura el nombre del juego
         holder.nombre.setText(ejerciciospojo.get(position).getNombre());
+        //evita que se pierdan los checbox marcados al subir o bajar el scrol
         holder.checkBox.setOnCheckedChangeListener(null);
-        final String id= Integer.toString(ejerciciospojo.get(position).getId());
+        //se crea un elemento onclick para capturar cundo se preciona el checkbox
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                //se valida si el checkbox fue marcado
                 if(holder.checkBox.isChecked()){
-                    numbers.add(position);
-                }else if (!holder.checkBox.isChecked()){
-                    numbers.remove(position);
+                    //si es checkeado se guarda en el arreglo el id del ejercicio
+                    idJuegosCheckbox.add(ejerciciospojo.get(position).getId());
+
+                //si se deselecciona
+                }else if(!holder.checkBox.isChecked()){
+                     //se valida si existe el id dentro del arreglo
+                  if(idJuegosCheckbox.contains(ejerciciospojo.get(position).getId())){
+                        //si exite se pide que indique que posicion
+                      int po=idJuegosCheckbox.indexOf(ejerciciospojo.get(position).getId());
+                      //finalmente se elimina
+                      idJuegosCheckbox.remove(po);
+
+                  }
+
                 }
 
             }
@@ -62,18 +79,24 @@ public class CrearGrupoAdacter extends RecyclerView.Adapter<CrearGrupoAdacter.Vi
 
 
 
-        //color de fondo de la tarjeta
+        //color de fondo de la tarjeta ARVERTENCIA "se debe colocar un color dependiendo del juego"
         holder.tarjeta.setCardBackgroundColor(contexto.getResources().getColor(R.color.azul2));
-        //Toast.makeText(contexto,"este="+Integer.toString(s),Toast.LENGTH_LONG).show();
+
 
 
     }
+    // el metodo geter permite que se pueda aceder al arreglo desde oro activity solo vreando una
+    // instancia de la clase e invocando el metodo
+    public ArrayList<Integer> getNumbers() {
+        return idJuegosCheckbox;
+    }
 
+    //numero de instancias que se crearan
     @Override
     public int getItemCount() {
         return ejerciciospojo.size();
     }
-
+    //nuestra propia clase Viewholder
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private CardView tarjeta;
         private TextView nombre;

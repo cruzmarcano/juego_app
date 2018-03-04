@@ -9,13 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TableLayout;
-import android.widget.Toast;
+
 
 public class PrincipalActivity extends AppCompatActivity {
     ImageButton botonMenu;
@@ -24,12 +21,6 @@ public class PrincipalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        //castemos la barra de herramienta que creamos
-        //Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        //decimos que esta sera nuestra action bar
-        //setSupportActionBar(toolbar);
-        //decimos que la muestre
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //casteamos el taplayout que creamos
         TabLayout tabLayout =(TabLayout)findViewById(R.id.tabs);
         //castemos viewPager que es la pagina que nos permitinar
@@ -108,7 +99,7 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent;
         switch (item){
             case "Crear juego":
-                 intent = new Intent(PrincipalActivity.this, MemoriaActivity.class);
+                 intent = new Intent(PrincipalActivity.this, PrincipalJuegos.class);
                 startActivity(intent);
                 this.finish();
                 break;

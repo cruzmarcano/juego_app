@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
@@ -22,15 +21,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.cruzmarcano.juego.datos.BDalzheimer;
 import com.example.cruzmarcano.juego.utilidades.TablasCampos;
 import com.facebook.stetho.Stetho;
-
 import java.io.File;
-import java.net.URI;
+import java.io.IOException;
+
 
 
 public class MemoriaActivity extends AppCompatActivity {
@@ -38,33 +35,31 @@ public class MemoriaActivity extends AppCompatActivity {
     private static final String TAG = "MemoriaActivity";
     private static final int plantilla = 1;
     private ContentValues juegoDatos=new ContentValues();
-
-
-
-    //private String APP_directorio="Galeria";
-    //private String Media_directorio= APP_directorio+"media";
     private String nombreImag;
     private String imacarpeta =Environment.getExternalStorageDirectory()+File.separator+"AlzheimerApp"+File.separator;
     private String sonidocarpeta =Environment.getExternalStorageDirectory()+File.separator+"Sounds";;
-    public int plantillaTipo=1;
     private static final int TRACK=300;
     private final int PHOTO_CODE=100;
     private final int SELECT_PICTURE=10;
     final int CROP_PIC_REQUEST_CODE = 1;
-
     ImageButton memoria, lenguaje, orientacion, atencion, visual,memo_sonido1,memo_sonido2,memo_sonido3;
     ImageView memo_ima;
     Button guardar;
     EditText  nombre, instrucion;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //ver base de datos
+
+        //ver base de datos en chrome
         Stetho.initializeWithDefaults(this);
         setContentView(R.layout.activity_memoria);
 
+        //barra de arriba
         Toolbar toolbar= (Toolbar) findViewById(R.id.barra);
         setSupportActionBar(toolbar);
+
         //creamos la carpeta donde guardaremos las imagenes y los sonidos
         String recursos = "AlzheimerApp";
 
@@ -202,41 +197,44 @@ public class MemoriaActivity extends AppCompatActivity {
 
         //vemos de donde viene nuestra respuesta
         switch (requestCode){
+            //si imagen viene de la camara
             case PHOTO_CODE:
                 if (resultCode==RESULT_OK){
-
-
+                    //se octiene la direccion provicional de la imagen
                     Uri path =data.getData();
-                    doCrop(path);
-
-                    Log.i("prueba","tomar foto");
+                    // se manda a recortar  para que sea una imagen cuadrada
+                    recortarImagen(path);
 
 
                 }
                 break;
                 //------------------------Galeria--------------------
+           //si la imagen viene de la galeria
             case SELECT_PICTURE:
 
 
                 if(resultCode==RESULT_OK){
-
+                    //se optiene la direccion de la imagen en la galeria
                     Uri path =data.getData();
-                    doCrop(path);
+                    //se valida si es cuadrada
+                    if(validarTamano(path)==false){
+                        recortarImagen(path);
+                    }else{
+
+                    }
 
 
 
-                    Log.i("prueba","selecpinture");
 
                 }
                 break;
             //------------------------Cortar Imagen---------------------------
             case CROP_PIC_REQUEST_CODE:
                 if(resultCode==RESULT_OK) {
-                    scanercarpeta(imacarpeta+nombreImag,this);
 
                     Bitmap bitmap = BitmapFactory.decodeFile(imacarpeta+nombreImag);
                     memo_ima.setImageBitmap(bitmap);
-                    Log.i("prueba",imacarpeta+nombreImag);
+
                 }
 
                 break;
@@ -276,9 +274,7 @@ public class MemoriaActivity extends AppCompatActivity {
         memo_ima.setImageBitmap(bitmap);
     }
 
-    private void doCrop(Uri picUri) {
-
-
+    private void recortarImagen(Uri picUri) {
 
         try {
 
@@ -296,21 +292,25 @@ public class MemoriaActivity extends AppCompatActivity {
             //combierto la fecha a string y la uno con la extencion para formar el nombre
             nombreImag =fecha.toString()+".jpg";
             File nuevacarpeta=new File(imacarpeta+nombreImag);
+            //se escanea la carpeta para que aparezca la imagen dentro de la carpeta
+            scanercarpeta(imacarpeta+nombreImag,this);
             //guardamos
             juegoDatos.put(BDalzheimer.JUEGO_DATOS1,imacarpeta+nombreImag);
             cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(nuevacarpeta));
             startActivityForResult(cropIntent, CROP_PIC_REQUEST_CODE);
         }
-        // respond to users whose devices do not support the crop action
+        // en caso que no se pueda recortar
         catch (ActivityNotFoundException anfe) {
             // display an error message
-            String errorMessage = "tu dispositivo no soporte esta opcion";
+            String errorMessage = "Su dispositivo no puede cortar la imagen";
             Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
             toast.show();
         }
 
 
     }
+
+    //---------------------buscar Audio-------------------------------
 
     public void buscarAudio(View v){
 
@@ -328,6 +328,30 @@ public class MemoriaActivity extends AppCompatActivity {
             toast.show();
         }
 
+    }
+    //---------------validar tamaño------------
+    //valida si la imagen es cuadrada
+    public Boolean validarTamano(Uri ruta){
+
+        Boolean cuadrado=false;
+
+        try {
+            //comvierte la ruta procicional en un Bitmap es necesario para saber su tamaño en pixeles
+            Bitmap imagen=MediaStore.Images.Media.getBitmap(this.getContentResolver(),ruta);
+            //se pregunta si la imagen es cuadrada
+            if(imagen.getHeight()==imagen.getWidth()){
+                // si tene el mismo ancho y alto es cuadrada
+                cuadrado=true;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            String errorMessage = "falla al optener la imagen";
+            Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        return cuadrado;
     }
 
 }
