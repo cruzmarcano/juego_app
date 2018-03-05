@@ -59,36 +59,36 @@
                     app:srcCompat="@mipmap/memo" />
 
                 <ImageButton
-                    android:id="@+id/lengBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight=".2"
-                    android:background="@color/verde"
-                    app:srcCompat="@mipmap/lengua" />
-
-                <ImageButton
                     android:id="@+id/atenBtn"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight=".2"
-                    android:background="@color/rosa"
+                    android:background="@color/azul"
                     app:srcCompat="@mipmap/atencion" />
-
-                <ImageButton
-                    android:id="@+id/orienBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight=".2"
-                    android:background="@color/azuloscuro"
-                    app:srcCompat="@mipmap/orienta" />
 
                 <ImageButton
                     android:id="@+id/visualBtn"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight=".2"
-                    android:background="@color/purpura"
+                    android:background="@color/verde"
                     app:srcCompat="@mipmap/visual" />
+
+                <ImageButton
+                    android:id="@+id/lengBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:background="@color/rosa"
+                    app:srcCompat="@mipmap/lengua" />
+
+                <ImageButton
+                    android:id="@+id/orienBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:background="@color/purpura"
+                    app:srcCompat="@mipmap/orienta" />
 
 
             </LinearLayout>
@@ -97,6 +97,8 @@
                 android:id="@+id/paginaJuego"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight=".9" />
 
         </LinearLayout>
