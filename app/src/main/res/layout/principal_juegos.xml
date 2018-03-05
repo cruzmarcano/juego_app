@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+<!--
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,11 +31,75 @@
             </android.support.design.widget.TabLayout>
 
         </android.support.design.widget.AppBarLayout>
-
-        <me.kaelaela.verticalviewpager.VerticalViewPager
-            android:id="@+id/paginaJuego"
+-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".1"
+                android:background="@drawable/sombra"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/memoBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:background="@color/amarillo"
+                    app:srcCompat="@mipmap/memo" />
+
+                <ImageButton
+                    android:id="@+id/lengBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:background="@color/verde"
+                    app:srcCompat="@mipmap/lengua" />
+
+                <ImageButton
+                    android:id="@+id/atenBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:background="@color/rosa"
+                    app:srcCompat="@mipmap/atencion" />
+
+                <ImageButton
+                    android:id="@+id/orienBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:background="@color/azuloscuro"
+                    app:srcCompat="@mipmap/orienta" />
+
+                <ImageButton
+                    android:id="@+id/visualBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".2"
+                    android:background="@color/purpura"
+                    app:srcCompat="@mipmap/visual" />
+
+
+            </LinearLayout>
+
+            <me.kaelaela.verticalviewpager.VerticalViewPager
+                android:id="@+id/paginaJuego"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9" />
+
+        </LinearLayout>
 
 
     </android.support.design.widget.CoordinatorLayout>
