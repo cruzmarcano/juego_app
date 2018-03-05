@@ -1,14 +1,105 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cruzmarcano.juego.PrincipalJuegosB">
+    android:orientation="vertical"
+    tools:context="com.example.cruzmarcano.juego.PrincipalJuegosA">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textoB"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Soy el Factmen B" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textoA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ayuda: Ingrese el nombre del juego, una instrucción sencilla de cómo jugarlo, una imagen y un sonido que guarde relacion con la imagen. " />
+
+    <EditText
+        android:id="@+id/memoNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borde_azul"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textCursorDrawable="@null"
+        android:ems="10"
+        android:hint="Nombre:"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/memoInstruc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borde_azul"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textCursorDrawable="@null"
+        android:ems="10"
+        android:hint="Instrucción:"
+        android:inputType="textPersonName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".2"
+            android:background="@color/azul"
+            app:srcCompat="@drawable/galeria_24dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".6"
+            android:weightSum="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/texAten1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
+                android:layout_marginBottom="3dp"
+                android:layout_marginRight="6dp"
+                android:background="@color/azul"
+                android:paddingLeft="10dp"
+                android:text="Seleccione Imagen referencial"
+                android:textColor="@color/blanco" />
+
+            <TextView
+                android:id="@+id/texAten2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight=".5"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/negro"
+                android:paddingLeft="5dp"
+                android:text="Seleccione Sonido"
+                android:textColor="@color/blanco" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".2"
+            android:background="@color/negro"
+            app:srcCompat="@drawable/galeria_24dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:background="@color/gris2"
+        android:text="Guardar" />
+
+</LinearLayout>

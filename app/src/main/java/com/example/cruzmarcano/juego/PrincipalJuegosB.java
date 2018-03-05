@@ -14,7 +14,9 @@ public class PrincipalJuegosB extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View raiz=inflater.inflate(R.layout.principal_juegos_b, container, false);
         // Inflate the layout for this fragment
-        TextView texto=(TextView)raiz.findViewById(R.id.textoB);
+
+
+
         return raiz;
     }
 
