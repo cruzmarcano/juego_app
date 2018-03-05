@@ -2,6 +2,7 @@ package com.example.cruzmarcano.juego;
 
 
 import android.annotation.SuppressLint;
+import android.os.Environment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,12 +14,16 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.File;
+
 import me.kaelaela.verticalviewpager.transforms.DefaultTransformer;
 
 
 public class PrincipalJuegos extends AppCompatActivity implements View.OnClickListener {
     ImageButton memoria, atencion, lenguage,visual, orientacion;
     ViewPager viewPager;
+    public String imagenRuta = Environment.getExternalStorageDirectory()+ File.separator+"AlzheimerApp"+File.separator;
+    public String SonidoRuta=Environment.getExternalStorageDirectory()+File.separator+"Sounds";;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,17 +54,20 @@ public class PrincipalJuegos extends AppCompatActivity implements View.OnClickLi
             case R.id.memoBtn:
                 viewPager.setCurrentItem(0);
                 break;
-            case R.id.lengBtn:
+            case R.id.atenBtn:
+
                 viewPager.setCurrentItem(1);
                 break;
-            case R.id.atenBtn:
+            case R.id.visualBtn:
+
                 viewPager.setCurrentItem(2);
                 break;
-            case R.id.orienBtn:
+            case R.id.lengBtn:
                 viewPager.setCurrentItem(3);
 
                 break;
-            case R.id.visualBtn:
+            case R.id.orienBtn:
+
 
                 viewPager.setCurrentItem(4);
                 break;

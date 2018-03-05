@@ -1,4 +1,4 @@
-package com.example.cruzmarcano.juego;
+package com.example.cruzmarcano.juego.ejercicios;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -17,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.cruzmarcano.juego.R;
 
 import java.io.File;
 import java.net.URI;

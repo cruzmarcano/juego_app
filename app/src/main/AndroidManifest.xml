@@ -21,7 +21,11 @@
         <activity
             android:name=".CargaActivity"
             android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!-- activity principal o pantalla de inicio -->
@@ -51,7 +55,7 @@
             android:name=".Propias.SonidoListActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".EjercicioAtencion"
+            android:name=".ejercicios.EjercicioAtencion"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
@@ -63,11 +67,6 @@
         <activity
             android:name=".PrincipalJuegos"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

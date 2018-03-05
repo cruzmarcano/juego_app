@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cruzmarcano.juego.EjercicioAtencion;
+import com.example.cruzmarcano.juego.ejercicios.EjercicioAtencion;
 import com.example.cruzmarcano.juego.R;
 import com.example.cruzmarcano.juego.pojo.EjerciciosPojo;
 

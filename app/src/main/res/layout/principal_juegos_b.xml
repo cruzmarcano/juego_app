@@ -15,28 +15,28 @@
         android:text="Ayuda: Ingrese el nombre del juego, una instrucción sencilla de cómo jugarlo, una imagen y un sonido que guarde relacion con la imagen. " />
 
     <EditText
-        android:id="@+id/memoNombre"
+        android:id="@+id/atenNomb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/borde_azul"
         android:layout_marginTop="10dp"
-        android:padding="5dp"
-        android:textCursorDrawable="@null"
+        android:background="@drawable/borde_azul"
         android:ems="10"
         android:hint="Nombre:"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:textCursorDrawable="@null" />
 
     <EditText
-        android:id="@+id/memoInstruc"
+        android:id="@+id/atenInst"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/borde_azul"
         android:layout_marginTop="10dp"
-        android:padding="5dp"
-        android:textCursorDrawable="@null"
+        android:background="@drawable/borde_azul"
         android:ems="10"
         android:hint="Instrucción:"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:textCursorDrawable="@null" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
         android:weightSum="1">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/ateImaBtn1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".2"
@@ -86,16 +86,16 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/ateImaBtn2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".2"
             android:background="@color/negro"
-            app:srcCompat="@drawable/galeria_24dp" />
+            app:srcCompat="@drawable/audio_24dp" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/guardarB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10px"
