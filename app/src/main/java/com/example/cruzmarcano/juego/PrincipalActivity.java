@@ -104,7 +104,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 this.finish();
                 break;
             case "Crear Grupo":
-                intent = new Intent(PrincipalActivity.this, CrearGrupoActivity.class);
+                intent = new Intent(PrincipalActivity.this, MemoriaActivity.class);
                 startActivity(intent);
                 this.finish();
                 break;

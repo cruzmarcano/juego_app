@@ -26,6 +26,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <!-- activity principal o pantalla de inicio -->
@@ -67,6 +68,7 @@
         <activity
             android:name=".PrincipalJuegos"
             android:screenOrientation="landscape">
+
         </activity>
     </application>
 

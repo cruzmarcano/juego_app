@@ -3,12 +3,15 @@ package com.example.cruzmarcano.juego;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
 import com.example.cruzmarcano.juego.datos.BDalzheimer;
 import com.example.cruzmarcano.juego.utilidades.TablasCampos;
+
+import java.io.File;
 
 public class CargaActivity extends AppCompatActivity {
 
@@ -44,6 +47,13 @@ public class CargaActivity extends AppCompatActivity {
             db.execSQL("INSERT INTO juego VALUES (null,1,'Veiculos','Que sonido esta relacionado con la imagen ','carro','carro',null,null);");
             db.close();
         }
+
+        //se crea la carpeta de galeria de imagenes reortadas
+        File f = new File(Environment.getExternalStorageDirectory(), "AlzheimerApp");
+        if (!f.exists()) {
+            f.mkdirs();
+        }
+
 
         /*
         new Handler().postDelayed(new Runnable() {
