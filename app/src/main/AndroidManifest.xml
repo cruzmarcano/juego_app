@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
 
@@ -21,11 +22,6 @@
         <activity
             android:name=".CargaActivity"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 
@@ -39,7 +35,7 @@
         <activity
             android:name=".MemoriaActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <!-- activity lengua -->
 
@@ -49,7 +45,9 @@
 
         <!-- activity lista hay que mejorar no se adapta -->
 
-        <activity android:name=".ListaActivity" />
+        <activity
+            android:name=".ListaActivity"
+            android:screenOrientation="landscape" />
 
         <!-- activity sonido -->
         <activity
@@ -62,13 +60,18 @@
         <activity
             android:name=".CrearGrupoActivity"
             android:screenOrientation="landscape">
-
         </activity>
         <!-- activity para agregar los juegos -->
         <activity
             android:name=".PrincipalJuegos"
             android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".ColorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -205,7 +205,6 @@ public class MemoriaActivity extends AppCompatActivity {
                     // se manda a recortar  para que sea una imagen cuadrada
                     recortarImagen(path);
 
-
                 }
                 break;
                 //------------------------Galeria--------------------

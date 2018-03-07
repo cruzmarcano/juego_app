@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:maxLength="10"
         android:background="@drawable/borde_azul"
         android:ems="10"
         android:hint="Nombre:"
@@ -33,6 +34,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/borde_azul"
         android:ems="10"
+        android:maxLength="60"
         android:hint="Instrucción:"
         android:inputType="textPersonName"
         android:padding="5dp"
@@ -65,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight=".5"
+
                 android:layout_marginBottom="3dp"
                 android:layout_marginRight="6dp"
                 android:background="@color/azul"

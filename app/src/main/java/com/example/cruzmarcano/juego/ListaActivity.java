@@ -49,7 +49,7 @@ public class ListaActivity extends AppCompatActivity {
         //lleno el arreglo con la informacion de la carpeta inspecionada
         for (int i = 0; i < listaVoz.length; i++)         {
 
-            if (listaVoz[i].isFile())             {
+            if (listaVoz[i].isFile()){
                 valores[i] = new String(listaVoz[i].getName());
             }
         }

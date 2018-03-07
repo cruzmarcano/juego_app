@@ -26,7 +26,7 @@
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/ImagGrupo"
+                android:id="@+id/imagGrupo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="0dp"
