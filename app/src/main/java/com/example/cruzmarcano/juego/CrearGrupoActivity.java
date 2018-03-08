@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
@@ -58,6 +59,7 @@ public class CrearGrupoActivity extends AppCompatActivity implements View.OnClic
         guardar=(Button)findViewById(R.id.guardarGrup);
 
         imagenBtn.setOnClickListener(this);
+        colorBtn.setOnClickListener(this);
 
         lista=(RecyclerView)findViewById(R.id.recyclerGrupo);
 
@@ -71,7 +73,9 @@ public class CrearGrupoActivity extends AppCompatActivity implements View.OnClic
         lista.setAdapter(crearGrupoAdacter);
 
 
-
+        Bundle extras = getIntent().getExtras();
+        String s = extras.getString("datos");
+        colorBtn.setBackgroundColor(Color.parseColor(s));
 
 
 
@@ -92,6 +96,9 @@ public class CrearGrupoActivity extends AppCompatActivity implements View.OnClic
                 Toast.makeText(CrearGrupoActivity.this,"el nuemero es="+res,Toast.LENGTH_LONG).show();
                 break;
             case R.id.colorGrupo:
+
+                Intent intent = new Intent(CrearGrupoActivity.this, ColorActivity.class);
+                startActivity(intent);
 
                 break;
 

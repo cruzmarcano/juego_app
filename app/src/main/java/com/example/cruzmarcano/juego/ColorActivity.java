@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ColorActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    ArrayList<String> datos;
+    List<String> datos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +20,25 @@ public class ColorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_color);
 
         datos=new ArrayList<>();
+        datos.add("#3F51B5");
+        datos.add("#B45F04");
+        datos.add("#ff4081");
+        datos.add("#e7c539");
+        datos.add("#c85b30");
         datos.add("#76aadb");
-        datos.add("#3d6aac");
+        datos.add("#088A08");
         datos.add("#BF0811");
+        datos.add("#DFA94A");
+        datos.add("#cb74a2");
+        datos.add("#5b5b5f");
+        datos.add("#3D6AAC");
+        datos.add("#782d83");
+        datos.add("#a3bd31");
+        datos.add("#cbc9c9");
+        datos.add("#5fa199");
+
+
+
 
 
 

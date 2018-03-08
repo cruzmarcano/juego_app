@@ -101,7 +101,7 @@ public class PrincipalActivity extends AppCompatActivity {
             case "Crear juego":
                  intent = new Intent(PrincipalActivity.this, PrincipalJuegos.class);
                 startActivity(intent);
-                this.finish();
+
                 break;
             case "Crear Grupo":
                 intent = new Intent(PrincipalActivity.this, CrearGrupoActivity.class);

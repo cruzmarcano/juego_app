@@ -15,53 +15,86 @@ import com.example.cruzmarcano.juego.Propias.RecyclerViewAdactador;
 import com.example.cruzmarcano.juego.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by cruzmarcano on 6/3/18.
  */
 
 public class ColorAdacter extends RecyclerView.Adapter<ColorAdacter.ViewHolder>{
-    Context context;
-    ArrayList<String> colores;
+    Context contexto;
+    List<String> informacion;
 
-    public ColorAdacter(Context context, ArrayList<String> colores) {
-        this.context = context;
-        this.colores = colores;
+    //estos lista contiene los datos que va a recibir
+
+
+
+    //este es el constructor
+
+
+    public ColorAdacter(Context contexto, List<String> informacion) {
+        this.contexto = contexto;
+        this.informacion = informacion;
     }
 
     @Override
-    public ColorAdacter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View item= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_color,parent,false);
-        ViewHolder viewHolder=new ViewHolder(item);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // contexto entra automaticamente por el parametro parent
+        View vistaItem=LayoutInflater.from(parent.getContext()).inflate(R.layout.item_color,parent,false);
+        //cremos un objeto ViewHolder que es el nuestro y le pasamos la vista
+        ViewHolder viewHolder= new ViewHolder(vistaItem);
+
+
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ColorAdacter.ViewHolder holder, final int position) {
-        int color=Color.parseColor("#76aadb");
-        //holder.botonColor.setBackgroundColor(89);
-            holder.botonColor.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                   /* Intent intent =new Intent(context, CrearGrupoActivity.class);
-                    intent.putExtra("color",colores[position]);
-                    context.startActivity(intent);*/
-                }
-            });
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        //aqui se enlazan la data con cada ViewHolder
+
+
+
+
+        //color de fondo de la tarjeta
+        holder.botonColor.setBackgroundColor(Color.parseColor(informacion.get(position)));
+        //Toast.makeText(contexto,"este="+Integer.toString(s),Toast.LENGTH_LONG).show();
+
+        holder.botonColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent =new Intent(contexto, CrearGrupoActivity.class);
+                intent.putExtra("datos",informacion.get(position));
+                contexto.startActivity(intent);
+
+
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return colores.size();
+        //cuantos va a mostrar
+        return informacion.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private CardView targetaColor;
+    //creamos nuestra propia clase ViewHolder y extendemos de RecyclerView y ViewHolder del paquete
+    //esto lo hacemos antes de sobreexcribir los metodos y antes de crear el extends de la clase EjercicioAdapter
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         private Button botonColor;
+        private CardView tarjeta ;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            targetaColor=(CardView) itemView.findViewById(R.id.cardColor);
             botonColor=(Button) itemView.findViewById(R.id.botonColor);
+            tarjeta=(CardView)itemView.findViewById(R.id.cardColor);
         }
     }
+
+
+
+
+
+
 }
